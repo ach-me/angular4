@@ -7,22 +7,25 @@
 
 <!-- Evento -->
 <button (click)="onClick()">Click Me</button>
+<button (click)="toggleEdit()">Edit User</button>
 
-<h2>Edit user</h2>
-<form>
-  <label for="name">Name: </label><br>
-  <input type="text" [(ngModel)]="name" name="name"><br>
-  <label for="age">Age: </label><br>
-  <input type="number" [(ngModel)]="age" name="age"><br>
-  <label for="email">Email: </label><br>
-  <input type="email" [(ngModel)]="email" name="email"><br>
-  <label for="street">Street: </label><br>
-  <input type="text" [(ngModel)]="address.street" name="street"><br>
-  <label for="city">City: </label><br>
-  <input type="text" [(ngModel)]="address.city" name="city"><br>
-  <label for="state">State: </label><br>
-  <input type="text" [(ngModel)]="address.state" name="state"><br>
-</form>
+<div *ngIf=isEdit>
+  <h2>Edit user</h2>
+  <form>
+    <label for="name">Name: </label><br>
+    <input type="text" [(ngModel)]="name" name="name"><br>
+    <label for="age">Age: </label><br>
+    <input type="number" [(ngModel)]="age" name="age"><br>
+    <label for="email">Email: </label><br>
+    <input type="email" [(ngModel)]="email" name="email"><br>
+    <label for="street">Street: </label><br>
+    <input type="text" [(ngModel)]="address.street" name="street"><br>
+    <label for="city">City: </label><br>
+    <input type="text" [(ngModel)]="address.city" name="city"><br>
+    <label for="state">State: </label><br>
+    <input type="text" [(ngModel)]="address.state" name="state"><br>
+  </form>
+</div>
 
 <!-- Directiva ngFor -->
 <h2>Hobbies</h2>
