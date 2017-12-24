@@ -33,3 +33,9 @@
 <ul *ngFor="let hobby of hobbies; let i = index">
   {{i + 1}} - {{hobby}} <button (click)="deleteHobby(hobby)">X</button>
 </ul>
+
+<h2>Posts</h2>
+<div *ngFor="let post of posts">
+  <h3>{{post.id}}. {{post.title}}</h3>
+  <p>{{post.body}}</p>
+</div>  

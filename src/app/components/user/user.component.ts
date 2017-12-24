@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: 'app-user',
@@ -11,8 +12,10 @@ export class UserComponent implements OnInit {
   email: string;
   address: Address;
   hobbies: string[];
+  posts: Post[];
 
-  constructor() { }
+  // Injectar dependencia del servicio en el constructor
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.name = 'John Doe';
@@ -22,12 +25,16 @@ export class UserComponent implements OnInit {
       street: '50 Main St.',
       city: 'Boston',
       state: 'MA'
-    }
+    };
     this.hobbies = [
       'Write code',
       'Watch movies',
       'Listen to music'
-    ]
+    ];
+    // getPosts retorna un observable, entonces hay que suscribirse
+    this.dataService.getPosts().subscribe((posts) => {
+      this.posts = posts;
+    })
   }
 
   onClick() {
@@ -52,4 +59,11 @@ interface Address {
   street: string,
   city: string,
   state: string
+}
+
+interface Post {
+  id: number,
+  title: string,
+  body: string,
+  userId: number
 }
